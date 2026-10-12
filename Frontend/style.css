@@ -1,0 +1,1293 @@
+/* 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+
+.navbar {
+    background: #1f2937;
+    color: white;
+
+    padding: 18px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h2 {
+    font-size: 24px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-links button {
+    background: transparent;
+    border: 1px solid white;
+
+    color: white;
+
+    padding: 10px 16px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.nav-links button:hover {
+    background: white;
+    color: #1f2937;
+}
+
+
+.section {
+    padding: 50px 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.form-container {
+    width: 100%;
+    max-width: 550px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-container h1,
+.feedback-container h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+
+    margin-bottom: 30px;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 7px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color: #2563eb;
+}
+
+
+
+.submit-btn {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #1d4ed8;
+}
+
+
+
+#message {
+    text-align: center;
+
+    margin-top: 20px;
+
+    font-weight: bold;
+}
+
+
+.feedback-container {
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+
+
+.feedback-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(280px, 1fr)
+    );
+
+    gap: 20px;
+}
+
+
+
+.feedback-card {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+}
+
+.feedback-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+
+.feedback-card h3 {
+    margin-bottom: 10px;
+}
+
+
+
+.rating {
+    margin-bottom: 12px;
+
+    font-size: 18px;
+}
+
+
+
+
+.feedback-card p {
+    color: #555;
+
+    line-height: 1.5;
+}
+
+
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 20px;
+    }
+
+    .nav-links {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .section {
+        padding: 30px 15px;
+    }
+
+    .form-container {
+        padding: 25px 20px;
+    }
+} 
+
+
+
+
+
+
+
+
+
+
+.feedback-card {
+    animation: fadeSlideUp 0.7s ease both;
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease,
+        background 0.4s ease;
+}
+
+
+.feedback-card:nth-child(3n + 1) {
+    animation-name: fadeSlideUp;
+    animation-delay: 0.1s;
+}
+
+
+.feedback-card:nth-child(3n + 2) {
+    animation-name: fadeSlideLeft;
+    animation-delay: 0.2s;
+}
+
+
+.feedback-card:nth-child(3n + 3) {
+    animation-name: zoomIn;
+    animation-delay: 0.3s;
+}
+
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes fadeSlideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.88);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.feedback-card:hover {
+    transform: translateY(-9px) scale(1.02);
+
+    background: linear-gradient(
+        145deg,
+        #ffffff,
+        #f5f7ff
+    );
+
+    border-color: #818cf8;
+
+    box-shadow:
+        0 15px 35px rgba(79, 70, 229, 0.13),
+        0 0 0 1px rgba(129, 140, 248, 0.15);
+}
+
+
+.feedback-card h3 {
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.feedback-card:hover h3 {
+    color: #4f46e5;
+    transform: translateX(4px);
+}
+
+
+.rating {
+    transition: transform 0.35s ease;
+}
+
+.feedback-card:hover .rating {
+    transform: scale(1.12) rotate(-2deg);
+}
+
+
+.feedback-card p {
+    transition: color 0.3s ease;
+}
+
+.feedback-card:hover p {
+    color: #334155;
+}
+
+
+@media (hover: none) {
+    .feedback-card:hover {
+        transform: none;
+    }
+}
+
+
+ */
+
+/* ==========================================
+   1. GLOBAL STYLES & DESIGN SYSTEM
+========================================== */
+
+:root {
+    --primary: #635bff;
+    --primary-dark: #493ee8;
+    --secondary: #06b6d4;
+    --accent: #a78bfa;
+
+    --background: #f5f7ff;
+    --surface: #ffffff;
+    --text: #172033;
+    --muted: #64748b;
+    --border: #e2e8f0;
+
+    --shadow:
+        0 12px 35px rgba(35, 43, 90, 0.08);
+
+    --shadow-hover:
+        0 22px 55px rgba(79, 70, 229, 0.17);
+
+    --radius: 18px;
+    --transition: 0.35s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(129, 140, 248, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 60%,
+            rgba(6, 182, 212, 0.08),
+            transparent 28%
+        ),
+        var(--background);
+
+    min-height: 100vh;
+    line-height: 1.65;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   2. PROFESSIONAL NAVBAR
+========================================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 18px 6%;
+
+    color: white;
+    background: rgba(17, 24, 45, 0.94);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.15);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    animation: navbarSlideDown 0.8s ease both;
+}
+
+.navbar h2 {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
+
+    background: linear-gradient(
+        110deg,
+        #ffffff,
+        #a5b4fc,
+        #67e8f9
+    );
+
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: textShimmer 5s linear infinite;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-links button {
+    position: relative;
+    overflow: hidden;
+
+    padding: 10px 18px;
+
+    color: #f8fafc;
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition:
+        color var(--transition),
+        background var(--transition),
+        border-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.nav-links button:hover {
+    color: #ffffff;
+
+    background: linear-gradient(
+        120deg,
+        var(--primary),
+        #8b5cf6
+    );
+
+    border-color: transparent;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(99, 91, 255, 0.35);
+}
+
+.nav-links button:active {
+    transform: scale(0.96);
+}
+
+/* ==========================================
+   3. PAGE SECTIONS
+========================================== */
+
+.section {
+    position: relative;
+    padding: 65px 22px;
+
+    animation: sectionSlideUp 0.8s ease both;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================
+   4. FEEDBACK FORM CONTAINER
+========================================== */
+
+.form-container {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    width: 100%;
+    max-width: 570px;
+
+    margin: 0 auto;
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
+
+    box-shadow: var(--shadow);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    animation: formReveal 0.9s cubic-bezier(
+        0.2, 0.8, 0.2, 1
+    ) both;
+
+    transition:
+        box-shadow 0.4s ease,
+        border-color 0.4s ease,
+        transform 0.4s ease;
+}
+
+/* Decorative glowing circle */
+
+.form-container::before {
+    content: "";
+
+    position: absolute;
+    top: -95px;
+    right: -85px;
+
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(129, 140, 248, 0.22),
+        transparent 70%
+    );
+
+    z-index: -1;
+    pointer-events: none;
+
+    animation: floatDecoration 7s ease-in-out infinite;
+}
+
+.form-container:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: #d6d4ff;
+    transform: translateY(-4px);
+}
+
+.form-container h1,
+.feedback-container h1 {
+    margin-bottom: 12px;
+
+    font-size: clamp(27px, 4vw, 36px);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -1.2px;
+
+    text-align: center;
+}
+
+.form-container h1 {
+    background: linear-gradient(
+        110deg,
+        #312e81,
+        #635bff,
+        #0891b2
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-size: 200% auto;
+    animation: textShimmer 6s linear infinite;
+}
+
+.subtitle {
+    max-width: 440px;
+    margin: 0 auto 32px;
+
+    color: var(--muted);
+    font-size: 15px;
+    text-align: center;
+
+    animation: fadeIn 1s ease both;
+}
+
+/* ==========================================
+   5. ANIMATED FORM FIELDS
+========================================== */
+
+.form-group {
+    position: relative;
+    margin-bottom: 23px;
+
+    animation: fieldSlideIn 0.65s ease both;
+}
+
+.form-group:nth-child(2) {
+    animation-delay: 0.08s;
+}
+
+.form-group:nth-child(3) {
+    animation-delay: 0.16s;
+}
+
+.form-group:nth-child(4) {
+    animation-delay: 0.24s;
+}
+
+.form-group:nth-child(5) {
+    animation-delay: 0.32s;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 9px;
+
+    color: #334155;
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.form-group:focus-within label {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    display: block;
+    width: 100%;
+
+    padding: 14px 15px;
+
+    color: var(--text);
+    background: #f8faff;
+
+    border: 1px solid #dce3ef;
+    border-radius: 11px;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.form-group textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* Cursor hover effect */
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+    background: #ffffff;
+    border-color: #a5b4fc;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 16px rgba(99, 91, 255, 0.07);
+}
+
+/* Animated focus glow */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    background: #ffffff;
+    border-color: var(--primary);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 0 4px rgba(99, 91, 255, 0.12),
+        0 8px 20px rgba(99, 91, 255, 0.07);
+}
+
+/* ==========================================
+   6. PREMIUM SUBMIT BUTTON
+========================================== */
+
+.submit-btn {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    display: block;
+    width: 100%;
+
+    padding: 15px 20px;
+
+    color: #ffffff;
+
+    background: linear-gradient(
+        115deg,
+        #4f46e5,
+        #7c3aed,
+        #2563eb
+    );
+
+    background-size: 200% 200%;
+
+    border: none;
+    border-radius: 11px;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 750;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 22px rgba(79, 70, 229, 0.25);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-position 0.5s ease;
+}
+
+/* Moving shine */
+
+.submit-btn::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -120%;
+
+    width: 65%;
+    height: 100%;
+
+    background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(255, 255, 255, 0.32),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+    transition: left 0.65s ease;
+
+    z-index: -1;
+}
+
+.submit-btn:hover {
+    background-position: 100% 50%;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 30px rgba(79, 70, 229, 0.35);
+}
+
+.submit-btn:hover::before {
+    left: 150%;
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================
+   7. FORM STATUS MESSAGE
+========================================== */
+
+#message {
+    margin-top: 20px;
+    padding: 12px 15px;
+
+    color: #047857;
+    background: #ecfdf5;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 650;
+    text-align: center;
+
+    overflow-wrap: anywhere;
+
+    animation: messagePop 0.4s ease both;
+}
+
+/* ==========================================
+   8. FEEDBACK DISPLAY SECTION
+========================================== */
+
+.feedback-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feedback-container h1 {
+    margin-bottom: 38px;
+}
+
+.feedback-grid {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 280px), 1fr)
+    );
+
+    gap: 25px;
+    align-items: stretch;
+}
+
+/* ==========================================
+   9. ANIMATED FEEDBACK CARDS
+========================================== */
+
+.feedback-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    padding: 28px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.045);
+
+    animation: cardRise 0.7s ease both;
+
+    transition:
+        transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.feedback-card:nth-child(3n + 1) {
+    animation-name: cardRise;
+    animation-delay: 0.08s;
+}
+
+.feedback-card:nth-child(3n + 2) {
+    animation-name: cardSlideRight;
+    animation-delay: 0.16s;
+}
+
+.feedback-card:nth-child(3n + 3) {
+    animation-name: cardZoom;
+    animation-delay: 0.24s;
+}
+
+/* Animated gradient top border */
+
+.feedback-card::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #635bff,
+        #06b6d4,
+        #a78bfa,
+        #635bff
+    );
+
+    background-size: 250% 100%;
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition: transform 0.4s ease;
+
+    z-index: -1;
+
+    animation: gradientMove 5s linear infinite;
+}
+
+.feedback-card:hover {
+    transform: translateY(-9px) scale(1.015);
+
+    border-color: #c4b5fd;
+
+    box-shadow:
+        0 22px 45px rgba(79, 70, 229, 0.12),
+        0 0 0 1px rgba(129, 140, 248, 0.12);
+}
+
+.feedback-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Feedback names */
+
+.feedback-card h3 {
+    margin-bottom: 12px;
+
+    color: #1e293b;
+    font-size: 19px;
+    font-weight: 750;
+
+    overflow-wrap: anywhere;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.feedback-card:hover h3 {
+    color: var(--primary-dark);
+    transform: translateX(4px);
+}
+
+/* Ratings */
+
+.rating {
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    color: #d97706;
+    font-size: 18px;
+
+    transition: transform 0.35s ease;
+}
+
+.feedback-card:hover .rating {
+    transform: scale(1.1) rotate(-2deg);
+}
+
+/* Feedback message */
+
+.feedback-card p {
+    color: #526077;
+    font-size: 15px;
+    line-height: 1.8;
+
+    overflow-wrap: anywhere;
+
+    transition: color 0.3s ease;
+}
+
+.feedback-card:hover p {
+    color: #334155;
+}
+
+/* ==========================================
+   10. ANIMATION LIBRARY
+========================================== */
+
+@keyframes navbarSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes sectionSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes formReveal {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fieldSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes cardRise {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardSlideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes cardZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes messagePop {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes textShimmer {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 200% center;
+    }
+}
+
+@keyframes gradientMove {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 250% center;
+    }
+}
+
+@keyframes floatDecoration {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-18px, 20px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   11. TABLET RESPONSIVENESS
+========================================== */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 17px 24px;
+    }
+
+    .section {
+        padding: 45px 20px;
+    }
+
+    .form-container {
+        padding: 32px 26px;
+    }
+
+    .feedback-grid {
+        gap: 18px;
+    }
+
+    .feedback-card {
+        padding: 24px;
+    }
+}
+
+/* ==========================================
+   12. MOBILE RESPONSIVENESS
+========================================== */
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px 16px;
+    }
+
+    .navbar h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 9px;
+    }
+
+    .nav-links button {
+        padding: 10px 13px;
+        font-size: 13px;
+    }
+
+    .section {
+        padding: 32px 15px;
+    }
+
+    .form-container {
+        padding: 27px 20px;
+        border-radius: 18px;
+    }
+
+    .form-container h1,
+    .feedback-container h1 {
+        letter-spacing: -0.6px;
+    }
+
+    .feedback-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feedback-card {
+        padding: 23px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px;
+    }
+}
+
+/* ==========================================
+   13. ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (hover: none) {
+    .form-container:hover {
+        transform: none;
+    }
+
+    .feedback-card:hover {
+        transform: none;
+    }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Feedback Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <h2>Student Feedback</h2>
+
+        <div class="nav-links">
+            <button onclick="showSection('formSection')">
+                Give Feedback
+            </button>
+
+            <button onclick="showSection('feedbackSection')">
+                All Feedback
+            </button>
+        </div>
+    </nav>
+    <main>
+
+        <section id="formSection" class="section">
+            <div class="form-container">
+                <h1>Share Your Feedback</h1>
+                <p class="subtitle">
+                    We would love to hear your thoughts!
+                </p>
+
+                <form id="feedbackForm">
+
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your name"
+                            required>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="rating">Rating</label>
+
+                        <select id="rating" required>
+
+                            <option value="">Select Rating</option>
+                            <option value="5">⭐⭐⭐⭐⭐</option>
+                            <option value="4">⭐⭐⭐⭐</option>
+                            <option value="3">⭐⭐⭐</option>
+                            <option value="2">⭐⭐</option>
+                            <option value="1">⭐</option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment">Your Comment</label>
+                        <textarea
+                            id="comment"
+                            rows="5"
+                            placeholder="Write your feedback..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Feedback </button>
+                </form>
+
+                <p id="message"></p>
+            </div>
+        </section>
+
+        <section id="feedbackSection" class="section hidden">
+            <div class="feedback-container">
+                <h1>All Feedback</h1>
+                <p class="subtitle">
+                    See what other students have shared.
+                </p>
+
+                <div id="feedbackList" class="feedback-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
